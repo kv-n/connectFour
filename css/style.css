@@ -11,16 +11,17 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    /* background-image: url(https://4.bp.blogspot.com/-UPRhDlUUo_8/Wpb8I7EqrQI/AAAAAAAAIDQ/GTga73vA8L4_C_p-tXfK63XE8huEZtMmgCLcBGAs/s1600/2400.jpg); */
+    background-image: url(https://www.sambro.co.uk/public/images/brands/pj-mask/pj-mask-background-jpg-2213.jpg);
+    background-size: cover;
 }
 
-section {
+section {   
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 1vh;
     height: 60vh;
     width: 80vh;
-    background-color: rgb(122, 155, 216);
+    background-color: rgba(98, 151, 248, 0.514);
     padding: 8px;
     /* margin: 80px; */
     z-index: 1;

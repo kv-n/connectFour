@@ -7,8 +7,9 @@ let colMax = 6;
 let rowMax = 7;
 
 const playerColors = {
-    '1': "red",
+    '1': 'red',
     '-1': 'yellow',
+    
 };
 
 /*----- app's state (variables) -----*/
@@ -107,15 +108,10 @@ function clickEvt(e) {
 
 function checkWin() {
     winner = null;
-    for (let rowIdx = 0; rowIdx < board.length; rowIdx++) {
-        checkRow(rowIdx)
-        if (winner) return;
-    }
     for (let colIdx = 0; colIdx < board.length; colIdx++) {
         checkCol(colIdx);
         if (winner) return;
     }
-
 }
 
 function checkCol(colIdx) {
@@ -126,21 +122,7 @@ function checkCol(colIdx) {
     //itterate through each disc
     for (let rowIdx = 0; rowIdx < colArr.length; rowIdx++) {
         //check if disc is part of win
-        winner = checkUp(colIdx, rowIdx) || checkRight(colIdx, rowIdx)
-        if (winner) return;
-    }
-    // TODO: check for tie
-}
-
-function checkRow(rowIdx) {
-    //set winner to (1 or -1), 'T' for a tie, or null if no winner or tie  
-    winner = null;
-    //obtain column array
-    let rowArr = board[rowIdx];
-    //itterate through each disc
-    for (let colIdx = 0; colIdx < rowArr.length; colIdx++) {
-        //check if disc is part of win
-        winner = checkUp(colIdx, rowIdx) || checkRight(colIdx, rowIdx)
+        winner = checkUp(colIdx, rowIdx) || checkRight(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDn(colIdx, rowIdx);
         if (winner) return;
     }
     // TODO: check for tie
@@ -157,6 +139,15 @@ function checkRight(colIdx, rowIdx) {
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
+function checkDiagUp(colIdx, rowIdx) {
+    if (colIdx > 3 || rowIdx > 2) return null;
+    return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx + 1] + board[colIdx + 2][rowIdx + 2] + board[colIdx + 3][rowIdx + 3]) === 4 ? board[colIdx][rowIdx] : null;
+}
+
+function checkDiagDn(colIdx, rowIdx) {
+    if (colIdx > 3 || rowIdx < 3) return null;
+    return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx - 1] + board[colIdx + 2][rowIdx - 2] + board[colIdx + 3][rowIdx - 3]) === 4 ? board[colIdx][rowIdx] : null;
+}
 
 
 // //not working...
