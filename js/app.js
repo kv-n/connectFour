@@ -2,10 +2,6 @@ console.log("ready")
 
 /*----- constants -----*/
 
-const curCount = 0;
-let colMax = 6;
-let rowMax = 7;
-
 const playerColors = {
     '1': 'red',
     '-1': 'yellow',
@@ -125,7 +121,9 @@ function checkCol(colIdx) {
         winner = checkUp(colIdx, rowIdx) || checkRight(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDn(colIdx, rowIdx);
         if (winner) return;
     }
-    // TODO: check for tie
+    //get tie
+    let numDiscs = board.reduce(((acc, colArr) => acc + colArr.length), 0);
+    return numDiscs === 42 ? 'T' : null;
 }
 
 function checkUp(colIdx, rowIdx) {
