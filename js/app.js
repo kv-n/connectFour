@@ -2,9 +2,9 @@ console.log("ready")
 
 /*----- constants -----*/
 
-const maxRow = 7;
-const maxCol = 6;
 const curCount = 0;
+let colMax = 6;
+let rowMax = 7;
 
 const playerColors = {
     '1': "red",
@@ -105,11 +105,6 @@ function clickEvt(e) {
     render();
 }
 
-
-
-let colIdx = 6;
-let rowIdx = 7;
-
 // let matchVert =
 // let matchHorz =
 
@@ -119,68 +114,39 @@ let rowIdx = 7;
 
 function checkWin() {
 
-    winner = checkUp(colIdx, rowIdx)
+    winner = checkCol (colIdx, rowIdx) || checkRow (colIdx, rowIdx)
 
     while (winner === false) {
         // winner = checkColWinner(colidx)
         winner = checkUp(colIdx);
     }
     return winner;
+
+
 }
 
-function checkColWinner() {
-    //loop through each cell until winner
-    //looping through each of the columns
-    let matchVert = 0;
-    for (i = 0; i < board.length; i++) {
-        for (j = 0; j < board[i].length; j++) {
-            matchVert += board[i][j]
-        } if (matchVert = 4) {
-            return winner;
-        } else if (colIdx > 2) {
-            return null;
-        }
-        winner = checkUp(colIdx, rowIdx) || checkRow(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDown(colIdx, rowIdx)
+function checkRow(rowIdx) {
+    if (rowIdx < 5) {
+        return null
+    } else {
+        return Math.abs(colMax[rowIdx] + colMax[rowIdx + 1] + colMax[rowIdx + 2] + colMax[rowIdx + 3]) === 4 ? colMax[rowIdx] : null;
     }
 }
 
-function checkUp(colIdx) {
-    for (i = 0; i < board.length; i++) {
-        for (j = 0; i < board[j].length; j++)
-            if (colIdx > 2) return null;
-        //boundary check, if its greater than two it will not check past it
+function checkCol(colIdx) {
+    if (colIdx < 3) {
+        return null
+    } else {
+        return Math.abs(colMax[colIdx] + colMax[colIdx + 1] + colMax[colIdx + 2] + colMax[colIdx + 3]) === 4 ? colMax[colIdx] : null;
     }
 }
 
 
+// function checkColWinner() {
+// }
 
-
-function checkRow(colIdx, rowIdx) {
-   for (colIdx = 0; colIdx <= 3; colIdx++) {
-        for (rowIdx = 0; rowIdx <= 5 ; rowIdx++) {
-            if (board[rowIdx][colIdx] == i){
-                if ((board[rowIdx][colIdx+1] == i) && (gameboard[rowIdx][colIdx+2] == i) && (gameboard[rowIdx][colIdx+3] == i)) {
-                }
-            }
-        }
-   }
-}
 
 // function checkRowWinner(idx) {
-//     // for (i = 0; i < maxCol; i++) {}
-//     //loop through each cell until winner
-// }
-
-// function checkDiagUp(idx) {
-//     // for (i = 0; i < maxCol; i++) {}
-//     if (rowIdx > 3) return null;
-//     //loop through each cell until winner
-// }
-
-// function checkDiagDown(idx) {
-//     // for (i = 0; i < maxCol; i++) {}
-//     if (rowIdx > 3) return null;
-//     //loop through each cell until winner
 // }
 
 
