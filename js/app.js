@@ -105,13 +105,6 @@ function clickEvt(e) {
     render();
 }
 
-// let matchVert =
-// let matchHorz =
-
-// let matchDiagUp =
-// let matchDiagDown =
-
-
 function checkWin() {
     winner = null;
     for (let rowIdx = 0; rowIdx < board.length; rowIdx++) {
@@ -160,10 +153,8 @@ function checkUp(colIdx, rowIdx) {
 }
 
 function checkRight(colIdx, rowIdx) {
-    if (colIdx > 4) return null;
-    let rowArr = board[rowIdx];
-    return Math.abs(rowArr[colIdx] + rowArr[colIdx + 1] + rowArr[colIdx + 2] + rowArr[colIdx + 3]) === 4 ? rowArr[colIdx] : null;
-
+    if (colIdx > 3) return null;
+    return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
 
