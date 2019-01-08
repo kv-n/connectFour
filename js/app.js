@@ -72,7 +72,7 @@ function render() {
 
 function clickEvt(e) {
     //if what you clicked had the id cboard or if there is a value to the background color, exit out of the function.
-    if ((e.target).getAttribute('id') === 'cboard' || (e.target).style.backgroundColor) return
+    if ((e.target).getAttribute('id') === 'cboard' || (e.target).style.backgroundColor || winner) return
     console.log(e.target);
 
     //col is selecting the column which we gave the custom name to represent column number
@@ -100,7 +100,7 @@ function clickEvt(e) {
 
     turn *= -1;
 
-    // checkWinner();
+    checkWin();
 
     render();
 }
@@ -113,41 +113,58 @@ function clickEvt(e) {
 
 
 function checkWin() {
-
-    winner = checkCol (colIdx, rowIdx) || checkRow (colIdx, rowIdx)
-
-    while (winner === false) {
-        // winner = checkColWinner(colidx)
-        winner = checkUp(colIdx);
+    winner = null;
+    for (let rowIdx = 0; rowIdx < board.length; rowIdx++) {
+        checkRow(rowIdx)
+        if (winner) return;
     }
-    return winner;
-
-
-}
-
-function checkRow(rowIdx) {
-    if (rowIdx < 5) {
-        return null
-    } else {
-        return Math.abs(colMax[rowIdx] + colMax[rowIdx + 1] + colMax[rowIdx + 2] + colMax[rowIdx + 3]) === 4 ? colMax[rowIdx] : null;
+    for (let colIdx = 0; colIdx < board.length; colIdx++) {
+        checkCol(colIdx);
+        if (winner) return;
     }
+
 }
 
 function checkCol(colIdx) {
-    if (colIdx < 3) {
-        return null
-    } else {
-        return Math.abs(colMax[colIdx] + colMax[colIdx + 1] + colMax[colIdx + 2] + colMax[colIdx + 3]) === 4 ? colMax[colIdx] : null;
+    //set winner to (1 or -1), 'T' for a tie, or null if no winner or tie  
+    winner = null;
+    //obtain column array
+    let colArr = board[colIdx];
+    //itterate through each disc
+    for (let rowIdx = 0; rowIdx < colArr.length; rowIdx++) {
+        //check if disc is part of win
+        winner = checkUp(colIdx, rowIdx) || checkRight(colIdx, rowIdx)
+        if (winner) return;
     }
+    // TODO: check for tie
 }
 
+function checkRow(rowIdx) {
+    //set winner to (1 or -1), 'T' for a tie, or null if no winner or tie  
+    winner = null;
+    //obtain column array
+    let rowArr = board[rowIdx];
+    //itterate through each disc
+    for (let colIdx = 0; colIdx < rowArr.length; colIdx++) {
+        //check if disc is part of win
+        winner = checkUp(colIdx, rowIdx) || checkRight(colIdx, rowIdx)
+        if (winner) return;
+    }
+    // TODO: check for tie
+}
 
-// function checkColWinner() {
-// }
+function checkUp(colIdx, rowIdx) {
+    if (rowIdx > 2) return null;
+    let colArr = board[colIdx];
+    return Math.abs(colArr[rowIdx] + colArr[rowIdx + 1] + colArr[rowIdx + 2] + colArr[rowIdx + 3]) === 4 ? colArr[rowIdx] : null;
+}
 
+function checkRight(colIdx, rowIdx) {
+    if (colIdx > 4) return null;
+    let rowArr = board[rowIdx];
+    return Math.abs(rowArr[colIdx] + rowArr[colIdx + 1] + rowArr[colIdx + 2] + rowArr[colIdx + 3]) === 4 ? rowArr[colIdx] : null;
 
-// function checkRowWinner(idx) {
-// }
+}
 
 
 
