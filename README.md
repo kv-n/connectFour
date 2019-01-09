@@ -49,7 +49,7 @@ Coding my first game was an emotional rollercoaster of frustration, stress and m
 
 ![Image of pen and paper wireframe](https://i.imgur.com/hRv1PJK.jpg)
  
-As I was coding, it was pointed out by my instructor that I the numbers of the column index backwards and I had to think about as an **index**! So I was off to wire frame again. 
+As I was coding, it was pointed out that I had the numbers of the column and rows backwards and I had to think about it as a **column index**! So I was off to wire frame again. 
 
 I started off using the created board using html and css as my actual wireframe for my javascript. 
 

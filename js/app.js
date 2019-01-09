@@ -126,7 +126,8 @@ function checkCol(colIdx) {
         winner = checkUp(colIdx, rowIdx) || checkRight(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDn(colIdx, rowIdx);
         if (winner) return;
     }
-    //get tie
+    //get tie: using .reduce to go through the board and the column index to check for discs and storing it to the acc. in the variable numDiscs
+    //if the number of discs is 42 it will return a tie, if not, it wont do anything.
     let numDiscs = board.reduce(((acc, colArr) => acc + colArr.length), 0);
     return numDiscs === 42 ? 'T' : null;
 }
