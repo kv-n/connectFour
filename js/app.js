@@ -7,8 +7,6 @@ const playerColors = {
     '-1': '#F7E8AD',
 };
 
-
-
 /*----- app's state (variables) -----*/
 
 let board;
@@ -22,16 +20,15 @@ const turnMsgEl = document.querySelector('h3');
 
 const playAgainBtn = document.querySelector('button');
 
-//to run array methods we use querySelectorAll and element by id gived us an object and cant run array methods
-var highlight = document.querySelectorAll(".dropToken");
+//to use array methods we use querySelectorAll because 
+//element by id gived us an object and cant run array methods
+const highlight = document.querySelectorAll(".dropToken");
 
 
 /*----- event listeners -----*/
 
 document.getElementById('cboard').addEventListener('click', clickEvt)
 playAgainBtn.addEventListener('click', init);
-
-// document.getElementById('cboard').addEventListener('click', colFull)
 
 
 /*----- functions -----*/
@@ -48,24 +45,26 @@ function init() {
         [],
         [],
     ];
-    //board = new Array(9).fill(null)
+
     turn = 1;
     winner = null;
+
     //since its now a nodelist we can run forEach setting each style to ''(empty)
     //selecting all the elements since its setting by style were setting their style to blank
     highlight.forEach(function(el){el.style=''})
+
     render();
 }
 
 
 function render() {
-    // render whos turn it is on DOM how many games won
 
     if (winner) {
         if (winner === "T") {
             turnMsgEl.textContent = "It's A Cats Game!";
         } else {
             let name = '';
+            //hard coding name: Yellow and name: Red
             turn === 1 ? name = 'Yellow' : name = 'Red';
             turnMsgEl.textContent = `${name} Wins!`;
             // turnMsgEl.textContent = `${playerColors[winner].toUpperCase()} Wins!`;
@@ -83,14 +82,9 @@ function render() {
 function clickEvt(e) {
     //if what you clicked had the id cboard or if there is a value to the background color, exit out of the function.
     if ((e.target).getAttribute('id') === 'cboard' || (e.target).style.backgroundColor || winner) return
-    console.log(e.target);
     //col is selecting the column which we gave the custom name to represent column number
     //charAt(num) is selecting the column number.
     let col = e.target.id.charAt(1);
-
-    //in the board array, col is selecting the correct array that correpsond to the column we clicked on
-    // let col = e.target.getAttribute('data-col');
-    // console.log(col + ' this is the column');
 
     //check if the column is full before you push turn
     board[col].push(turn);
@@ -99,7 +93,6 @@ function clickEvt(e) {
     //board[col].length is always number based. 
     //To get the index of the last element in the array we would minus board[col].length by 1 (-1).
     let row = board[col].length - 1
-    // console.log(row + ' this is the row');
 
     //changing the background color to the playercolor we specified to the chosen column and 
     //adding it to the last index of that nested array
@@ -141,13 +134,13 @@ function checkCol(colIdx) {
 function checkUp(colIdx, rowIdx) {
     if (rowIdx > 2) return null;
     let colArr = board[colIdx];
-    //
+    //goes through the columns array in the board array and checking if theres a match of 4 in every row going up if not return null
     return Math.abs(colArr[rowIdx] + colArr[rowIdx + 1] + colArr[rowIdx + 2] + colArr[rowIdx + 3]) === 4 ? colArr[rowIdx] : null;
 }
 
 function checkRight(colIdx, rowIdx) {
     if (colIdx > 3) return null;
-    //
+    //goes through the board array, using column index and row index checking for a match of 4 in every row going right and checking up to 4
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
@@ -164,7 +157,6 @@ function checkDiagDn(colIdx, rowIdx) {
 //MOVEOVER AND MOUSEOUT EFFECTS
 
 
-
 for (var i = 0; i < highlight.length; i++) {
     highlight[i].addEventListener("mouseover", highlightThem)
     highlight[i].addEventListener("mouseout", DontHighlightThem);
@@ -173,8 +165,6 @@ for (var i = 0; i < highlight.length; i++) {
 function highlightThem(evt) {
     const columName = evt.target.className.split(' ')[1]
     const eles = document.getElementsByClassName(columName)
-    // console.log(eles)
-    // console.log(evt)
     for (var i = 0; i < eles.length; i++) {
         eles[i].classList.add("lit")
     }
