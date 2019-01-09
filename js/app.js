@@ -61,13 +61,13 @@ function render() {
             turnMsgEl.textContent = "It's A Cats Game!";
         } else {
             let name = '';
-            turn === 1 ? name = 'Bats' : name = 'Bane';
+            turn === 1 ? name = 'Baymax' : name = 'Hiro';
             turnMsgEl.textContent = `${name} Wins!`;
             // turnMsgEl.textContent = `${playerColors[winner].toUpperCase()} Wins!`;
         }
     } else {
         let name = '';
-        turn === 1 ? name = 'Bats' : name = 'Bane';
+        turn === 1 ? name = 'Baymax' : name = 'Hiro';
         turnMsgEl.textContent = `${name}'s Turn`;
         // turnMsgEl.textContent = `${playerColors[turn].toUpperCase()}'s Turn`;
     }
