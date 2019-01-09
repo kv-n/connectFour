@@ -5,8 +5,10 @@ console.log("ready")
 const playerColors = {
     '1': 'red',
     '-1': 'yellow',
-    
+
 };
+
+
 
 /*----- app's state (variables) -----*/
 
@@ -56,12 +58,18 @@ function render() {
 
     if (winner) {
         if (winner === "T") {
-            turnMsgEl.textContent = "Rats, another Tie!";
+            turnMsgEl.textContent = "It's A Cats Game!";
         } else {
-            turnMsgEl.textContent = `${playerColors[winner].toUpperCase()} Wins!`;
+            let name = '';
+            turn === 1 ? name = 'Bats' : name = 'Bane';
+            turnMsgEl.textContent = `${name} Wins!`;
+            // turnMsgEl.textContent = `${playerColors[winner].toUpperCase()} Wins!`;
         }
     } else {
-        turnMsgEl.textContent = `${playerColors[turn].toUpperCase()}'s Turn`;
+        let name = '';
+        turn === 1 ? name = 'Bats' : name = 'Bane';
+        turnMsgEl.textContent = `${name}'s Turn`;
+        // turnMsgEl.textContent = `${playerColors[turn].toUpperCase()}'s Turn`;
     }
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
 
@@ -71,7 +79,6 @@ function clickEvt(e) {
     //if what you clicked had the id cboard or if there is a value to the background color, exit out of the function.
     if ((e.target).getAttribute('id') === 'cboard' || (e.target).style.backgroundColor || winner) return
     console.log(e.target);
-
     //col is selecting the column which we gave the custom name to represent column number
     //charAt(num) is selecting the column number.
     let col = e.target.id.charAt(1);
@@ -81,7 +88,6 @@ function clickEvt(e) {
     // console.log(col + ' this is the column');
 
     //check if the column is full before you push turn
-
     board[col].push(turn);
 
     //it selects the row we want to be coloring in for playerTurn
@@ -94,9 +100,8 @@ function clickEvt(e) {
     //adding it to the last index of that nested array
     document.getElementById(`c${col}r${row}`).style.backgroundColor = playerColors[turn];
     console.log(turn)
-
+    
     turn *= -1;
-
     checkWin();
 
     render();
@@ -129,11 +134,13 @@ function checkCol(colIdx) {
 function checkUp(colIdx, rowIdx) {
     if (rowIdx > 2) return null;
     let colArr = board[colIdx];
+    //
     return Math.abs(colArr[rowIdx] + colArr[rowIdx + 1] + colArr[rowIdx + 2] + colArr[rowIdx + 3]) === 4 ? colArr[rowIdx] : null;
 }
 
 function checkRight(colIdx, rowIdx) {
-    if (colIdx > 3) return null;
+    if (colIdx > 4) return null;
+    //
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
@@ -183,20 +190,29 @@ function checkDiagDn(colIdx, rowIdx) {
 
 
 
-var highlight = document.getElementsByClassName("col0");
+var highlight = document.getElementsByClassName("dropToken");
 
 for (var i = 0; i < highlight.length; i++) {
-    highlight[i].addEventListener("mouseover", highlightThem);
+    highlight[i].addEventListener("mouseover", highlightThem)
     highlight[i].addEventListener("mouseout", DontHighlightThem);
 }
 
-function highlightThem() {
-    for (var i = 0; i < highlight.length; i++) {
-        highlight[i].classList.add("lit");
+function highlightThem(evt) {
+    const columName = evt.target.className.split(' ')[1]
+    const eles = document.getElementsByClassName(columName)
+    console.log(eles)
+    console.log(evt)
+    for (var i = 0; i < eles.length; i++) {
+        eles[i].classList.add("lit")
+
+
     }
 }
 function DontHighlightThem() {
     for (var i = 0; i < highlight.length; i++) {
-        highlight[i].classList.remove("lit");
+        highlight[i].classList.remove("lit")
+
     }
 }
+
+//create read update 
