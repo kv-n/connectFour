@@ -22,6 +22,9 @@ const turnMsgEl = document.querySelector('h3');
 
 const playAgainBtn = document.querySelector('button');
 
+//to run array methods we use querySelectorAll and element by id gived us an object and cant run array methods
+var highlight = document.querySelectorAll(".dropToken");
+
 
 /*----- event listeners -----*/
 
@@ -48,6 +51,9 @@ function init() {
     //board = new Array(9).fill(null)
     turn = 1;
     winner = null;
+    //since its now a nodelist we can run forEach setting each style to ''(empty)
+    //selecting all the elements since its setting by style were setting their style to blank
+    highlight.forEach(function(el){el.style=''})
     render();
 }
 
@@ -97,6 +103,7 @@ function clickEvt(e) {
 
     //changing the background color to the playercolor we specified to the chosen column and 
     //adding it to the last index of that nested array
+    //setting style of the just background
     document.getElementById(`c${col}r${row}`).style.backgroundColor = playerColors[turn];
     
     turn *= -1;
@@ -139,7 +146,7 @@ function checkUp(colIdx, rowIdx) {
 }
 
 function checkRight(colIdx, rowIdx) {
-    if (colIdx > 4) return null;
+    if (colIdx > 3) return null;
     //
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }
@@ -156,7 +163,7 @@ function checkDiagDn(colIdx, rowIdx) {
 
 //MOVEOVER AND MOUSEOUT EFFECTS
 
-var highlight = document.getElementsByClassName("dropToken");
+
 
 for (var i = 0; i < highlight.length; i++) {
     highlight[i].addEventListener("mouseover", highlightThem)
@@ -166,8 +173,8 @@ for (var i = 0; i < highlight.length; i++) {
 function highlightThem(evt) {
     const columName = evt.target.className.split(' ')[1]
     const eles = document.getElementsByClassName(columName)
-    console.log(eles)
-    console.log(evt)
+    // console.log(eles)
+    // console.log(evt)
     for (var i = 0; i < eles.length; i++) {
         eles[i].classList.add("lit")
     }
