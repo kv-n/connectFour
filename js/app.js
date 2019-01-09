@@ -3,9 +3,10 @@ console.log("ready")
 /*----- constants -----*/
 
 const playerColors = {
-    '1': '',
-    '-1': '',
+    '1': '#B70100',
+    '-1': '#F7E8AD',
 };
+
 
 
 /*----- app's state (variables) -----*/
