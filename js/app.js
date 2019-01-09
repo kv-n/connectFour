@@ -3,8 +3,8 @@ console.log("ready")
 /*----- constants -----*/
 
 const playerColors = {
-    '1': 'red',
-    '-1': 'yellow',
+    '1': '#B70100',
+    '-1': '#F7E8AD',
 
 };
 
@@ -204,10 +204,9 @@ function highlightThem(evt) {
     console.log(evt)
     for (var i = 0; i < eles.length; i++) {
         eles[i].classList.add("lit")
-
-
     }
 }
+
 function DontHighlightThem() {
     for (var i = 0; i < highlight.length; i++) {
         highlight[i].classList.remove("lit")
