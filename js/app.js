@@ -3,18 +3,16 @@ console.log("ready")
 /*----- constants -----*/
 
 const playerColors = {
-    '1': '#B70100',
-    '-1': '#F7E8AD',
-
+    '1': '',
+    '-1': '',
 };
-
 
 
 /*----- app's state (variables) -----*/
 
 let board;
 let turn;
-let winner = false;
+let winner;
 
 
 /*----- cached element references -----*/
@@ -61,13 +59,13 @@ function render() {
             turnMsgEl.textContent = "It's A Cats Game!";
         } else {
             let name = '';
-            turn === 1 ? name = 'Baymax' : name = 'Hiro';
+            turn === 1 ? name = 'Yellow' : name = 'Red';
             turnMsgEl.textContent = `${name} Wins!`;
             // turnMsgEl.textContent = `${playerColors[winner].toUpperCase()} Wins!`;
         }
     } else {
         let name = '';
-        turn === 1 ? name = 'Baymax' : name = 'Hiro';
+        turn === 1 ? name = 'Red' : name = 'Yellow';
         turnMsgEl.textContent = `${name}'s Turn`;
         // turnMsgEl.textContent = `${playerColors[turn].toUpperCase()}'s Turn`;
     }
@@ -99,11 +97,12 @@ function clickEvt(e) {
     //changing the background color to the playercolor we specified to the chosen column and 
     //adding it to the last index of that nested array
     document.getElementById(`c${col}r${row}`).style.backgroundColor = playerColors[turn];
-    console.log(turn)
     
     turn *= -1;
     checkWin();
-
+    //in responser to user interaction(such as a click)
+    //update all relevant state
+    //render()
     render();
 }
 
@@ -154,41 +153,7 @@ function checkDiagDn(colIdx, rowIdx) {
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx - 1] + board[colIdx + 2][rowIdx - 2] + board[colIdx + 3][rowIdx - 3]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
-
-// //not working...
-// // function colFull() {
-// //     for (i = 0; i < maxCol; i++) {
-// //         if (board[i].length == maxCol) {
-// //             alert("GO AWAY!")
-// //             return
-// //         }
-// //     }
-// // }
-
-
-// //in responser to user interaction(such as a click)
-// //update all relevant state
-// //render()
-
-
-// //recursion is when a function calls itself
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//MOVEOVER AND MOUSEOUT EFFECTS
 
 var highlight = document.getElementsByClassName("dropToken");
 
@@ -213,5 +178,3 @@ function DontHighlightThem() {
 
     }
 }
-
-//create read update 

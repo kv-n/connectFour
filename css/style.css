@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Archivo Black', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -43,10 +43,9 @@ button {
     border-radius: 4px;
 }
 
-
-h3 {
-    font-size: 2.0em;
-    color: white;
+h1 {
+    padding: 30px;
+    font-size: 3.0em;
 }
 
 .bounce {
@@ -55,14 +54,14 @@ animation-name: bounce;
 
 .text {
 text-align: center;
-margin-top: 56px;
+margin-top: 0;
 color: white;
-font-size: 2.0em;
+font-size: 1.8em;
 text-transform: uppercase;
 }
 
 .animated {
-animation-duration: 2.5s;
+animation-duration: 3.5s;
 animation-fill-mode: both;
 animation-iteration-count: infinite;
 }
@@ -79,14 +78,6 @@ animation: change-background 4s ease infinite;
 z-index: 1;
 }
 
-
-div:target {
-line-height: 1.5;
-padding-top: 1em;
-padding-bottom: 1em;
-color: black;
-}
-
 .lit {
     background-color:#0021427c;
   }
@@ -98,5 +89,3 @@ color: black;
 40% {transform: translateY(-30px);}
 60% {transform: translateY(-15px);}
 }
-
-
