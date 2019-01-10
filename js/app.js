@@ -125,14 +125,14 @@ function checkCol(colIdx) {
 }
 
 function checkUp(colIdx, rowIdx) {
-    if (rowIdx > 3) return null;
+    if (rowIdx > 2) return null;
     let colArr = board[colIdx];
     //goes through the columns array in the board array and checking if theres a match of 4 in every row going up if not return null
     return Math.abs(colArr[rowIdx] + colArr[rowIdx + 1] + colArr[rowIdx + 2] + colArr[rowIdx + 3]) === 4 ? colArr[rowIdx] : null;
 }
 
 function checkRight(colIdx, rowIdx) {
-    if (colIdx > 2) return null;
+    if (colIdx > 3) return null;
     //goes through the board array, using column index and row index checking for a match of 4 in every row going right and checking up to 4
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }
