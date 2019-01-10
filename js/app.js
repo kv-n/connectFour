@@ -132,7 +132,7 @@ function checkUp(colIdx, rowIdx) {
 }
 
 function checkRight(colIdx, rowIdx) {
-    if (colIdx > 4) return null;
+    if (colIdx > 2) return null;
     //goes through the board array, using column index and row index checking for a match of 4 in every row going right and checking up to 4
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }

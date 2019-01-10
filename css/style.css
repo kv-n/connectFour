@@ -24,7 +24,6 @@ section {
     width: 75vh;
     background-color: transparent;
     padding: 20px;
-    z-index: 1;
 }
 
 button {
@@ -53,7 +52,6 @@ div {
     border: 2.4px solid rgba(250, 250, 250, 0.781);
     border-radius: 50%;
     background: transparent;
-    z-index: -1;
 }
 
 /* classes attached to animations and effects */
@@ -90,8 +88,6 @@ div {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-
-
 
 /* KEYFRAMES */
 /* controls the intermediate steps in a CSS animation sequence by defining styles for 

@@ -35,6 +35,7 @@ Four in a Row, Four in a Line, Drop Four, and Gravitrips (in Soviet Union)) is a
 
 - [ ] If column is full, alert user that it is full and a disk cannot be droped
 - [ ] Changing the color of players name during turn switch
+- [ ] Disc doesnt drop if clicking in a div with a disc already there
 
 #### FUTURE PLANS
 
