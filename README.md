@@ -42,6 +42,7 @@ Row, Four in a Line, Drop Four, and Gravitrips (in Soviet Union)) is a two-playe
 - [ ] Refactor code
 - [ ] Additional Animation
 - [ ] Enter player names
+- [ ] Make it responsive
 
  
  ## SUMMARY
@@ -57,7 +58,7 @@ I started off using the created board using html and css as my actual wireframe 
  
 The most difficult for me was getting the win condition and initializing it.
 
-The win logic was a tough one, I thought I had to use a dozen or more if statements! but after mulling for an hour and beating myself up, I mustered the courage to ask for help and lo' and behold, I learned an easier way to doing things! I wont bother with the entire code but here is the bread and butter: 
+The win logic was a tough one, I thought I had to use a dozen or more if statements! However, after mulling for an hour and beating myself up, I mustered the courage to ask for help and lo' and behold, I learned an easier way to doing things! I wont bother with the entire code but here is the bread and butter: 
 
 ```
 for (let rowIdx = 0; rowIdx < colArr.length; rowIdx++) {

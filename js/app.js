@@ -3,8 +3,8 @@ console.log("ready")
 /*----- constants -----*/
 
 const playerColors = {
-    '1': '#B70100',
-    '-1': '#F7E8AD',
+    '1': '#D92119',
+    '-1': '#FBDA67',
 };
 
 /*----- app's state (variables) -----*/
@@ -61,19 +61,17 @@ function render() {
 
     if (winner) {
         if (winner === "T") {
-            turnMsgEl.textContent = "It's A Cats Game!";
+            turnMsgEl.textContent = "Congrats! You both lose!";
         } else {
             let name = '';
             //hard coding name: Yellow and name: Red
             turn === 1 ? name = 'Yellow' : name = 'Red';
             turnMsgEl.textContent = `${name} Wins!`;
-            // turnMsgEl.textContent = `${playerColors[winner].toUpperCase()} Wins!`;
         }
     } else {
         let name = '';
         turn === 1 ? name = 'Red' : name = 'Yellow';
         turnMsgEl.textContent = `${name}'s Turn`;
-        // turnMsgEl.textContent = `${playerColors[turn].toUpperCase()}'s Turn`;
     }
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
 
@@ -127,9 +125,10 @@ function checkCol(colIdx) {
         if (winner) return;
     }
     //get tie: using .reduce to go through the board and the column index to check for discs and storing it to the acc. in the variable numDiscs
-    //if the number of discs is 42 it will return a tie, if not, it wont do anything.
+    //if the number of discs is 42 it will return a tie, if not, it will return null
     let numDiscs = board.reduce(((acc, colArr) => acc + colArr.length), 0);
-    return numDiscs === 42 ? 'T' : null;
+    //if winner = the number of disc of 42 taken circles on the board it will return a Tie otherwise it will just go back to null
+    winner = numDiscs === 42 ? 'T' : null;
 }
 
 function checkUp(colIdx, rowIdx) {
@@ -156,7 +155,6 @@ function checkDiagDn(colIdx, rowIdx) {
 }
 
 //MOVEOVER AND MOUSEOUT EFFECTS
-
 
 for (var i = 0; i < highlight.length; i++) {
     highlight[i].addEventListener("mouseover", highlightThem)

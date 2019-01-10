@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+html { 
+    background: url('../images/conbackground\ 2.jpg') no-repeat center fixed; 
+    background-size: 105% 100%;
 }
 
 body {
@@ -8,9 +13,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    background-image: url('../images/cbackground.jpg');
-    background-size: cover;
 }
 
 section {   
@@ -19,8 +21,8 @@ section {
     grid-gap: 1vh;
     height: 60vh;
     width: 75vh;
-    background-color:#8AC7C2;
-    padding: 10px;
+    background-color: transparent;
+    padding: 20px;
     z-index: 1;
 }
 
@@ -29,7 +31,7 @@ button {
     font-size: 20px;
     padding: 10px;
     border: 1px solid;
-    background-color: #002142;
+    background-color: #0F3F49;
     border-radius: 4px;
     color: white;
 }
@@ -37,6 +39,7 @@ button {
 h1 {
     padding: 30px;
     font-size: 3.0em;
+    color: #F9E584;
 }   
 
 div {
@@ -62,9 +65,10 @@ div {
 .text {
     text-align: center;
     margin-top: 0;
-    color: white;
+    color: #F8A338;
     font-size: 1.8em;
     text-transform: uppercase;
+    padding: 20px;
 }
 
 .animated {
@@ -74,7 +78,7 @@ div {
 }
 
 .lit {
-    background-color:#0021427c;
+    background-color:rgba(15, 63, 73, 0.329);
 }
 
 
@@ -130,5 +134,3 @@ div {
         transform: none;
     }
 }
-
-
