@@ -46,7 +46,7 @@ Four in a Row, Four in a Line, Drop Four, and Gravitrips (in Soviet Union)) is a
 - [ ] Make it responsive
 
  
- ## SUMMARY
+## SUMMARY
 Coding my first game was an emotional rollercoaster of frustration, stress and most importantly excitement. At the beginning of the week, I didn't even know where to begin, so I began to wirefrime useing good ol' pen and paper!
 
 ![Image of pen and paper wireframe](https://i.imgur.com/hRv1PJK.jpg)
