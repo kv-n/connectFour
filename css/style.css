@@ -161,7 +161,7 @@ and (orientation : portrait) {
     h1 {
         width: 100vw;
         margin: 0;
-        font-size: 4.2em;
+        font-size: 3.7em;
     }
 
     h3 {
@@ -189,27 +189,26 @@ and (orientation : landscape) {
 
     body{
         width: 100vw;
-        max-height: 350px;
-
+        max-height: 380px;
     }
 
     section {
-        margin-right: 13vw;
+        margin-right: 19vh;
         margin-bottom: 0;
         width: 60vh;
         height: 70vh;
+        padding: .5vh;
     }
 
     h1 {
         width: 100vw;
-        margin-bottom: 5vh;
         font-size: 1.5em;
-        text-align: center;
-        padding: 3vh;
+        padding: 5vh;
     }
 
     h3 {
-        margin-left: 2vh;
+        margin-left: 7vh;
+        margin-right: 10vh;
     }
 
     .text {
@@ -218,7 +217,7 @@ and (orientation : landscape) {
         color: #F8A338;
         font-size: 1em;
         text-transform: uppercase;
-        padding: 2vh;
+        padding: 1vh;
     }
 
     button {
