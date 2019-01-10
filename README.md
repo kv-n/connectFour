@@ -11,7 +11,7 @@
 - [x] CSS
 - [x] JavaScript
 
-My approach to making this game was to see if I can code it using just JavaScript and no external libraries.
+My approach to making this game was to see if I can code it using just JavaScript and no added libraries.
 
 
 ## GETTING STARTED
@@ -20,7 +20,7 @@ My approach to making this game was to see if I can code it using just JavaScrip
 >
 >  — Milton Bradley, Connect Four "Pretty Sneaky, Sis" television commercial, 1977
 
-Row, Four in a Line, Drop Four, and Gravitrips (in Soviet Union)) is a two-player connection game in which the players first choose a color and then take turns dropping one colored disc from the top into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column.
+Four in a Row, Four in a Line, Drop Four, and Gravitrips (in Soviet Union)) is a two-player connection game in which the players first choose a color and then take turns dropping one colored disc from the top into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column.
 
 
 ![Alt Text](https://upload.wikimedia.org/wikipedia/commons/a/ad/Connect_Four.gif)
