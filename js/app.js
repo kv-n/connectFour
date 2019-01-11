@@ -18,7 +18,7 @@ const turnMsgEl = document.querySelector('h3');
 const playAgainBtn = document.querySelector('button');
 
 //to use array methods we use querySelectorAll because 
-//element by id gived us an object and cant run array methods
+//element by id gives us an object and using it means we cant run array methods
 const highlight = document.querySelectorAll(".dropToken");
 
 /*----- event listeners -----*/
@@ -127,23 +127,28 @@ function checkCol(colIdx) {
 function checkUp(colIdx, rowIdx) {
     if (rowIdx > 2) return null;
     let colArr = board[colIdx];
-    //goes through the columns array in the board array and checking if theres a match of 4 in every row going up if not return null
+    //rowIdx > 2 because after the 2nd row you cant get 4 in a row
+    //goes through the columns checking row upwards
+    //Math.abs returns absolute value of adding player color until it hits 4. I.E. (1, 1, 1, 1) (-1, -1,-1 ,-1)
     return Math.abs(colArr[rowIdx] + colArr[rowIdx + 1] + colArr[rowIdx + 2] + colArr[rowIdx + 3]) === 4 ? colArr[rowIdx] : null;
 }
 
 function checkRight(colIdx, rowIdx) {
     if (colIdx > 3) return null;
-    //goes through the board array, using column index and row index checking for a match of 4 in every row going right and checking up to 4
+    //colIdx > 3 because after the 3rd column you cant get 4 in a row
+    //goes through the columns and row checking every horizonatlly
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx] + board[colIdx + 2][rowIdx] + board[colIdx + 3][rowIdx]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
 function checkDiagUp(colIdx, rowIdx) {
     if (colIdx > 3 || rowIdx > 2) return null;
+    //checking Diagup going up 1 row and 1 column
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx + 1] + board[colIdx + 2][rowIdx + 2] + board[colIdx + 3][rowIdx + 3]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
 function checkDiagDn(colIdx, rowIdx) {
     if (colIdx > 3 || rowIdx < 3) return null;
+    //checking DiagDN going down 1 row and 1 column
     return Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx - 1] + board[colIdx + 2][rowIdx - 2] + board[colIdx + 3][rowIdx - 3]) === 4 ? board[colIdx][rowIdx] : null;
 }
 
@@ -155,7 +160,7 @@ for (var i = 0; i < highlight.length; i++) {
 }
 
 function highlightThem(evt) {
-    //had split them because there was moe then one class name on the element and we wanted to grab the col
+    //had split them because there was more then one class name on the element and we wanted to grab the col
     const columName = evt.target.className.split(' ')[1]
     const eles = document.getElementsByClassName(columName)
     for (var i = 0; i < eles.length; i++) {

@@ -16,6 +16,8 @@ My approach to making this game was to see if I can code it using just JavaScrip
 
 ## GETTING STARTED
 
+![Alt Text](https://i.imgur.com/xIcAYrh.png)
+
 >Object: Connect four of your checkers in a row while preventing your opponent from doing the same. But, look out -- your opponent can sneak up on you and win the game!
 >
 >  — Milton Bradley, Connect Four "Pretty Sneaky, Sis" television commercial, 1977
@@ -79,4 +81,8 @@ function checkRight(colIdx, rowIdx) {
 
 So after seeing a pattern with the win condition, I was able to finally understand what was going on and apply it to the rest of the game!
 
-In summary, this was a fun and insightful first project that tied in everything I've learned so far. I wouldn't have been able to complete it as well as I did without the help of my cohort and my instructors! so sit back, grab a friend and enjoy a game of Connect Four!
+In summary, this was a fun and insightful first project that really helped me understand how important patterns are, with the game and with code! Though Connect Four is a simple game and there isnt much complexity in it, from my prespective it has helped me solidify the knowledge base I've gained so far and how to apply it to real life applications.
+
+I wouldn't have been able to complete this project successfully as I did, without the help of my cohort and my instructors! 
+
+So sit back, grab a friend and enjoy a game of Connect Four!
