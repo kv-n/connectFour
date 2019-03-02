@@ -48,7 +48,9 @@ function init() {
     //selecting all the elements since its setting by style were setting their style to blank
     //when the game is being rendered or reset.
     highlight.forEach(function(el){el.style=''})
-
+    //in responser to user interaction(such as a click)
+    //update all relevant state
+    //call render()
     render();
 }
 
@@ -92,9 +94,6 @@ function clickEvt(e) {
     
     turn *= -1;
     checkWin();
-    //in responser to user interaction(such as a click)
-    //update all relevant state
-    //call render()
     render();
 }
 
